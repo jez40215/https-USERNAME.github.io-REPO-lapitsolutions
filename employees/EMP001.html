@@ -1,24 +1,49 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Employee Profile - Juan Dela Cruz</title>
+  <meta charset="UTF-8">
+  <title>Employee Information</title>
   <style>
-    body { font-family: Arial, sans-serif; max-width: 600px; margin: 40px auto; padding: 20px; background: #f4f4f4; }
-    .card { background: #fff; padding: 20px; border-radius: 10px; box-shadow: 0 2px 6px rgba(0,0,0,0.1); text-align: center; }
-    img { border-radius: 50%; max-width: 150px; }
-    h1 { margin: 15px 0 5px; }
-    p { margin: 4px 0; }
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f9fa;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .card {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+    .card img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+    }
+    .card h2 {
+      margin: 10px 0;
+    }
+    .card p {
+      margin: 5px 0;
+    }
   </style>
 </head>
 <body>
   <div class="card">
-    <img src="../images/EMP001.jpg" alt="Employee Photo">
-    <h1>Juan Dela Cruz</h1>
-    <p><strong>Position:</strong> Engineer</p>
-    <p><strong>Age:</strong> 28</p>
+    <!-- ✅ because both files are inside /employees -->
+    <img src="employee1.jpg" alt="Employee Photo">
+    <h2>John Doe</h2>
+    <p><strong>Position:</strong> Software Engineer</p>
+    <p><strong>Age:</strong> 29</p>
     <p><strong>Sex:</strong> Male</p>
-    <p><strong>Email:</strong> juan@example.com</p>
   </div>
 </body>
 </html>
+
