@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+      background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%); /* ✅ Blue gradient */
       margin: 0;
       display: flex;
       justify-content: center;
@@ -30,7 +30,7 @@
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
-      border: 4px solid #74ebd5;
+      border: 4px solid #74b9ff; /* ✅ Blue border */
     }
     h2 { margin: 10px 0 6px; font-size: 1.5em; color: #333; }
     h4 { margin: 5px 0 15px; font-weight: normal; font-size: 1em; color: #777; }
@@ -42,20 +42,20 @@
       color: #444;
       padding: 8px;
       border-radius: 8px;
-      background: #f9f9f9;
+      background: #f1f6ff; /* ✅ Light blue background for info */
     }
     .btn {
       display: inline-block;
       margin-top: 15px;
       padding: 10px 20px;
-      background: #74ebd5;
+      background: #74b9ff; /* ✅ Blue button */
       color: #fff;
       border-radius: 25px;
       text-decoration: none;
       font-size: 0.9em;
       cursor: pointer;
     }
-    .btn:hover { background: #58c7b5; }
+    .btn:hover { background: #4aa3ff; } /* ✅ Darker blue on hover */
 
     /* Hidden private section */
     .private-info {
@@ -64,22 +64,22 @@
       text-align: left;
     }
     .private-info p {
-      background: #ffecec;
-      border-left: 4px solid #ff6b6b;
+      background: #eaf3ff; /* ✅ Soft blue private info */
+      border-left: 4px solid #4aa3ff; /* ✅ Blue border highlight */
     }
 
     /* Header with logo on the right */
     .private-header {
       display: flex;
       align-items: center;
-      justify-content: space-between; /* ✅ pushes logo to the right */
+      justify-content: space-between;
       margin-bottom: 10px;
     }
     .private-header img {
       width: 40px;
       height: 40px;
-      border: none;     /* ✅ no outline */
-      border-radius: 0; /* ✅ keep it square/clean */
+      border: none;
+      border-radius: 0;
     }
     .private-header h3 {
       margin: 0;
