@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ Makes layout mobile-friendly -->
   <title>Employee Information</title>
   <style>
     body {
@@ -12,14 +13,16 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      padding: 15px; /* ✅ Prevents card from touching screen edges on small devices */
     }
     .card {
       background: #fff;
-      padding: 30px 40px;
+      padding: 25px;
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
       text-align: center;
-      width: 360px;
+      width: 100%;
+      max-width: 360px; /* ✅ Shrinks nicely on mobile, expands up to 360px on larger screens */
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .card:hover {
@@ -27,8 +30,8 @@
       box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
     }
     .card img {
-      width: 140px;
-      height: 140px;
+      width: 40%;
+      max-width: 140px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 18px;
@@ -73,6 +76,14 @@
     }
     .btn:hover {
       background: #58c7b5;
+    }
+
+    /* ✅ Mobile fine-tuning */
+    @media (max-width: 480px) {
+      h2 { font-size: 1.4em; }
+      h4 { font-size: 0.9em; }
+      .info p { font-size: 0.85em; }
+      .btn { font-size: 0.85em; padding: 8px 16px; }
     }
   </style>
 </head>
