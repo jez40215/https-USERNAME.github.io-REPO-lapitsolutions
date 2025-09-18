@@ -68,6 +68,24 @@
       border-left: 4px solid #ff6b6b;
     }
 
+    /* Logo beside heading */
+    .private-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+    .private-header img {
+      width: 40px;
+      height: 40px;
+      border-radius: 6px;
+    }
+    .private-header h3 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+
     @media (max-width: 480px) {
       h2 { font-size: 1.3em; }
       h4 { font-size: 0.9em; }
@@ -95,7 +113,10 @@
 
     <!-- Private Info (Hidden until password correct) -->
     <div class="private-info" id="privateInfo">
-      <h3>Private Information</h3>
+      <div class="private-header">
+        <img src="company_logo.png" alt="Company Logo">
+        <h3>Private Information</h3>
+      </div>
       <p><strong>SSS No:</strong> 34-5678901-2</p>
       <p><strong>Pag-IBIG No:</strong> 1212-3434-5656</p>
       <p><strong>PhilHealth No:</strong> 09-87654321-0</p>
