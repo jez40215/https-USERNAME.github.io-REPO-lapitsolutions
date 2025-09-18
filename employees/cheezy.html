@@ -68,18 +68,18 @@
       border-left: 4px solid #ff6b6b;
     }
 
-    /* Logo beside heading */
+    /* Header with logo on the right */
     .private-header {
       display: flex;
       align-items: center;
-      gap: 10px;
+      justify-content: space-between; /* ✅ pushes logo to the right */
       margin-bottom: 10px;
     }
     .private-header img {
       width: 40px;
       height: 40px;
-      border-radius: 0; /* ✅ no rounded corners */
-      border: none;     /* ✅ no border/outline */
+      border: none;     /* ✅ no outline */
+      border-radius: 0; /* ✅ keep it square/clean */
     }
     .private-header h3 {
       margin: 0;
@@ -115,8 +115,8 @@
     <!-- Private Info (Hidden until password correct) -->
     <div class="private-info" id="privateInfo">
       <div class="private-header">
-        <img src="company_logo.png" alt="Company Logo">
         <h3>Private Information</h3>
+        <img src="company_logo.png" alt="Company Logo">
       </div>
       <p><strong>SSS No:</strong> 34-5678901-2</p>
       <p><strong>Pag-IBIG No:</strong> 1212-3434-5656</p>
