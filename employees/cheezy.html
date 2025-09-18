@@ -78,7 +78,8 @@
     .private-header img {
       width: 40px;
       height: 40px;
-      border-radius: 6px;
+      border-radius: 0; /* ✅ no rounded corners */
+      border: none;     /* ✅ no border/outline */
     }
     .private-header h3 {
       margin: 0;
@@ -114,7 +115,7 @@
     <!-- Private Info (Hidden until password correct) -->
     <div class="private-info" id="privateInfo">
       <div class="private-header">
-        <img src="company_logo.jpg" alt="Company Logo">
+        <img src="company_logo.png" alt="Company Logo">
         <h3>Private Information</h3>
       </div>
       <p><strong>SSS No:</strong> 34-5678901-2</p>
