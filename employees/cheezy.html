@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- ✅ Makes responsive on mobile -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee Information</title>
   <style>
     body {
@@ -13,7 +13,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 15px; /* ✅ prevents touching screen edges */
+      padding: 15px;
     }
     .card {
       background: #fff;
@@ -21,13 +21,8 @@
       border-radius: 16px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
       text-align: center;
-      width: 100%;        /* ✅ Full width on mobile */
-      max-width: 360px;   /* ✅ Limit width on larger screens */
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      width: 100%;
+      max-width: 360px;
     }
     .card img {
       width: 40%;
@@ -37,21 +32,10 @@
       margin-bottom: 15px;
       border: 4px solid #74ebd5;
     }
-    h2 {
-      margin: 10px 0 6px;
-      font-size: 1.5em;
-      color: #333;
-    }
-    h4 {
-      margin: 5px 0 15px;
-      font-weight: normal;
-      font-size: 1em;
-      color: #777;
-    }
-    .info {
-      text-align: left;
-      margin-top: 10px;
-    }
+    h2 { margin: 10px 0 6px; font-size: 1.5em; color: #333; }
+    h4 { margin: 5px 0 15px; font-weight: normal; font-size: 1em; color: #777; }
+
+    .info { text-align: left; margin-top: 10px; }
     .info p {
       margin: 8px 0;
       font-size: 0.95em;
@@ -59,9 +43,6 @@
       padding: 8px;
       border-radius: 8px;
       background: #f9f9f9;
-    }
-    .info strong {
-      color: #2a2a2a;
     }
     .btn {
       display: inline-block;
@@ -72,13 +53,21 @@
       border-radius: 25px;
       text-decoration: none;
       font-size: 0.9em;
-      transition: background 0.3s ease;
+      cursor: pointer;
     }
-    .btn:hover {
-      background: #58c7b5;
+    .btn:hover { background: #58c7b5; }
+
+    /* Hidden private section */
+    .private-info {
+      display: none;
+      margin-top: 15px;
+      text-align: left;
+    }
+    .private-info p {
+      background: #ffecec;
+      border-left: 4px solid #ff6b6b;
     }
 
-    /* ✅ Mobile adjustments */
     @media (max-width: 480px) {
       h2 { font-size: 1.3em; }
       h4 { font-size: 0.9em; }
@@ -92,6 +81,7 @@
     <img src="cheezy.jpg" alt="Employee Photo">
     <h2>Cheezy</h2>
     <h4>Patience Reducer 🐶</h4>
+
     <div class="info">
       <p><strong>Employee ID:</strong> EMP-1025</p>
       <p><strong>Department:</strong> Stress Testing</p>
@@ -100,7 +90,29 @@
       <p><strong>Email:</strong> cheezy@company.com</p>
       <p><strong>Phone:</strong> +63 912 345 6789</p>
     </div>
-    <a href="#" class="btn">View Profile</a>
+
+    <button class="btn" onclick="askPassword()">View Profile</button>
+
+    <!-- Private Info (Hidden until password correct) -->
+    <div class="private-info" id="privateInfo">
+      <h3>Private Information</h3>
+      <p><strong>SSS No:</strong> 34-5678901-2</p>
+      <p><strong>Pag-IBIG No:</strong> 1212-3434-5656</p>
+      <p><strong>PhilHealth No:</strong> 09-87654321-0</p>
+      <p><strong>TIN:</strong> 123-456-789</p>
+      <p><strong>Address:</strong> Cheezy Street, Barktown</p>
+    </div>
   </div>
+
+  <script>
+    function askPassword() {
+      let pass = prompt("Enter password to view private info:");
+      if (pass === "lapit123") {
+        document.getElementById("privateInfo").style.display = "block";
+      } else {
+        alert("❌ Incorrect password!");
+      }
+    }
+  </script>
 </body>
 </html>
