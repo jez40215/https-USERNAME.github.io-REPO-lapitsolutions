@@ -2,41 +2,249 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Employee Information</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f9fa;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #74b9ff 0%, #a29bfe 100%);
+      margin: 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 100vh;
+      min-height: 100vh;
+      padding: 15px;
     }
     .card {
-      background: white;
-      padding: 20px 30px;
-      border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      background: #fff;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
       text-align: center;
-      width: 300px;
+      width: 100%;
+      max-width: 360px;
     }
     .card img {
-      width: 120px;
-      height: 120px;
+      width: 40%;
+      max-width: 120px;
       border-radius: 50%;
       object-fit: cover;
       margin-bottom: 15px;
+      border: 4px solid #74b9ff;
+    }
+    h2 { margin: 10px 0 6px; font-size: 1.5em; color: #333; }
+    h4 { margin: 5px 0 15px; font-weight: normal; font-size: 1em; color: #777; }
+
+    .info { text-align: left; margin-top: 10px; }
+    .info p {
+      margin: 8px 0;
+      font-size: 0.95em;
+      color: #444;
+      padding: 8px;
+      border-radius: 8px;
+      background: #f1f6ff;
+    }
+    .info a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .info a:hover { text-decoration: underline; }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #74b9ff;
+      color: #fff;
+      border-radius: 25px;
+      text-decoration: none;
+      font-size: 0.9em;
+      cursor: pointer;
+    }
+    .btn:hover { background: #4aa3ff; }
+
+    .private-info {
+      display: none;
+      margin-top: 15px;
+      text-align: left;
+    }
+    .private-info p {
+      background: #eaf3ff;
+      border-left: 4px solid #4aa3ff;
+    }
+
+    .private-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+    .private-header img {
+      width: 40px;
+      height: 40px;
+      border: none;
+      border-radius: 0;
+    }
+    .private-header h3 {
+      margin: 0;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    /* Custom modal popup */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      max-width: 300px;
+      width: 100%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .modal-content h3 { margin-bottom: 15px; color: #333; }
+    .modal-content input {
+      width: 90%;
+      padding: 8px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    .modal-content button {
+      border: none;
+      padding: 8px 16px;
+      margin: 5px;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+    .modal-content button:first-of-type {
+      background: #74b9ff;
+    }
+    .modal-content button:first-of-type:hover {
+      background: #4aa3ff;
+    }
+    .modal-content button:last-of-type {
+      background: #e74c3c;
+    }
+    .modal-content button:last-of-type:hover {
+      background: #c0392b;
+    }
+
+    /* Print button */
+    .print-btn {
+      display: none;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #2ecc71;
+      color: white;
+      border-radius: 25px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9em;
+    }
+    .print-btn:hover { background: #27ae60; }
+
+    @media (max-width: 480px) {
+      h2 { font-size: 1.3em; }
+      h4 { font-size: 0.9em; }
+      .info p { font-size: 0.85em; }
+      .btn, .print-btn { font-size: 0.85em; padding: 8px 14px; }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <!-- ✅ Now images are inside the /employees/images folder -->
-    <img src="imagesEMP001.jpg" alt="Employee Photo">
-    <h2>Gabriel Lavarias Garcia</h2>
-    <p><strong>Position:</strong> System Demonstrator</p>
-    <p><strong>Age:</strong> 21</p>
-    <p><strong>Sex:</strong> Male</p>
+  <div class="card" id="employeeCard">
+    <img src="cheezy.jpg" alt="Employee Photo">
+    <h2>Gabriel Garcia</h2>
+    <h4>Sysmtem Demonstrator</h4>
+
+    <div class="info">
+      <p><strong>Employee ID:</strong> Lap-000 019</p>
+      <p><strong>Department:</strong> I.T. Tech Support</p>
+      <p><strong>Age:</strong> 21</p>
+      <p><strong>Sex:</strong> Male</p>
+      <p><strong>Email:</strong> <a href="mailto:gabriel_21@lapsolinc.com">gabriel_21@lapsolinc.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+639558895316">+63 955 889 5316</a></p>
+    </div>
+
+    <button class="btn" onclick="openModal()">View Profile</button>
+
+    <div class="private-info" id="privateInfo">
+      <div class="private-header">
+        <h3>Private Information</h3>
+        <img src="company_logo.png" alt="Company Logo">
+      </div>
+      <p><strong>SSS No:</strong> </p>
+      <p><strong>Pag-IBIG No:</strong> </p>
+      <p><strong>PhilHealth No:</strong> </p>
+      <p><strong>TIN:</strong> </p>
+      <p><strong>Address:</strong> 457 Guerrero Street Barangay 24-C Davao City</p>
+      <button class="print-btn" onclick="printCard()">🖨️ Print</button>
+    </div>
   </div>
+
+  <!-- Custom modal -->
+  <div class="modal" id="passwordModal">
+    <div class="modal-content">
+      <h3>Lap I.T. Solutions Inc. says</h3>
+      <p>Enter password to view private info:</p>
+      <input type="password" id="passwordInput" placeholder="Enter password">
+      <br>
+      <button onclick="checkPassword()">Submit</button>
+      <button onclick="closeModal()">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    function openModal() {
+      document.getElementById("passwordModal").style.display = "flex";
+    }
+    function closeModal() {
+      document.getElementById("passwordModal").style.display = "none";
+    }
+    function checkPassword() {
+      let pass = document.getElementById("passwordInput").value;
+      if (pass === "lapit123") {
+        document.getElementById("privateInfo").style.display = "block";
+        document.querySelector(".print-btn").style.display = "inline-block";
+        closeModal();
+      } else {
+        alert("❌ Incorrect password!");
+      }
+    }
+    function printCard() {
+      let content = document.getElementById("employeeCard").innerHTML;
+      let printWindow = window.open("", "", "width=800,height=600");
+      printWindow.document.write(`
+        <html>
+        <head>
+          <title>Employee Info</title>
+          <style>
+            body { font-family: Arial, sans-serif; text-align:center; }
+            .card { max-width:600px; margin:auto; }
+            img { max-width:150px; border-radius:50%; }
+            .private-header img { max-width:80px; border-radius:0; }
+            p { text-align:left; margin:6px 0; }
+          </style>
+        </head>
+        <body>
+          <div class="card">${content}</div>
+          <script>window.print();<\/script>
+        </body>
+        </html>
+      `);
+      printWindow.document.close();
+    }
+  </script>
 </body>
 </html>
