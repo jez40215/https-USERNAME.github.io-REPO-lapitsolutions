@@ -44,6 +44,15 @@
       border-radius: 8px;
       background: #f1f6ff;
     }
+    .info a {
+      color: #0066cc;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .info a:hover {
+      text-decoration: underline;
+    }
+
     .btn {
       display: inline-block;
       margin-top: 15px;
@@ -147,8 +156,8 @@
       <p><strong>Department:</strong> Stress Testing</p>
       <p><strong>Age:</strong> 8 months old</p>
       <p><strong>Sex:</strong> Female</p>
-      <p><strong>Email:</strong> cheezy@company.com</p>
-      <p><strong>Phone:</strong> +63 912 345 6789</p>
+      <p><strong>Email:</strong> <a href="mailto:cheezy@company.com">cheezy@company.com</a></p>
+      <p><strong>Phone:</strong> <a href="tel:+639123456789">+63 912 345 6789</a></p>
     </div>
 
     <button class="btn" onclick="openModal()">View Profile</button>
